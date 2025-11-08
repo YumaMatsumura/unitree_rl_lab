@@ -33,6 +33,9 @@ COBBLESTONE_ROAD_CFG = terrain_gen.TerrainGeneratorCfg(
     use_cache=False,
     sub_terrains={
         "flat": terrain_gen.MeshPlaneTerrainCfg(proportion=0.1),
+        "climb_down": mdp.ClimbDownTerrainCfg(
+            function=mdp.hf_climb_down, proportion=0.2, box_height_range=(0.1, 0.7), edge_offset=1.0
+        ),
         # "random_rough": terrain_gen.HfRandomUniformTerrainCfg(
         #     proportion=0.1, noise_range=(0.01, 0.06), noise_step=0.01, border_width=0.25
         # ),
