@@ -195,7 +195,7 @@ class CommandsCfg:
         rel_standing_envs=0.1,  # 速度ゼロコマンドを有効にする環境の割合
         rel_heading_envs=1.0,  # headingコマンドを有効にする環境の割合
         heading_command=True,  # headingコマンドを有効にするか
-        heading_control_stifness=0.5,  # heading誤差に対する比例ゲインのようなパラメータ
+        heading_control_stiffness=0.5,  # heading誤差に対する比例ゲインのようなパラメータ
         debug_vis=True,
         ranges=mdp.UniformLevelVelocityCommandCfg.Ranges(
             lin_vel_x=(-0.1, 0.1),
@@ -439,9 +439,9 @@ class RobotEnvCfg(ManagerBasedRLEnvCfg):
 
         # update sensor update periods
         # we tick all the sensors based on the smallest update period (physics update period)
-        if scene.contact_forces is not None:
+        if self.scene.contact_forces is not None:
             self.scene.contact_forces.update_period = self.sim.dt
-        if scene.height_scanner is not None:
+        if self.scene.height_scanner is not None:
             self.scene.height_scanner.update_period = self.decimation * self.sim.dt
 
         # check if terrain levels curriculum is enabled - if so, enable curriculum for terrain generator

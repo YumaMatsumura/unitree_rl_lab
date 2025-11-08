@@ -4,7 +4,7 @@ from typing import Tuple
 
 from isaaclab.utils import configclass
 from isaaclab.terrains import SubTerrainBaseCfg
-from isaaclab.terrains import height_field_to_mesh
+from isaaclab.terrains.height_field.utils import height_field_to_mesh
 
 
 @configclass
